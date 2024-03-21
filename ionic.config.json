@@ -1,0 +1,7 @@
+{
+  "name": "ionic_supabase",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue-vite"
+}
