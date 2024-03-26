@@ -1,9 +1,7 @@
 <template>
   <ion-list>
     <ion-item class="ion-align-items-center">
-      <ion-label
-        :router-link="'/albums'"
-      >
+      <ion-label :router-link="'/albums'">
         Albums
       </ion-label>
     </ion-item>
@@ -13,7 +11,7 @@
       </ion-label>
     </ion-item>
     <ion-item class="ion-align-items-center">
-      <ion-label>
+      <ion-label :router-link="'/me'">
         My profile
       </ion-label>
     </ion-item>

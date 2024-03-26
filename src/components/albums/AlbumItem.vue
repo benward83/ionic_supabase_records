@@ -5,15 +5,10 @@
     </ion-thumbnail>
     <ion-label
       :router-link="`/albums/${album.id}`"
+      class="ion-text-nowrap"
     >
-      {{ album.name }}
+      <p>{{ album.name }}</p>
     </ion-label>
-    <ion-note
-      slot='end'
-      color="medium"
-    >
-      {{ album.artist }}
-    </ion-note>
     <ion-icon
       slot="end"
       :icon="trashBin"

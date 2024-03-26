@@ -23,7 +23,8 @@ import '@ionic/vue/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
-import BaseLayout from './components/base/BaseLayout.vue';
+import BaseLayout from './components/layouts/BaseLayout.vue';
+import LoginLayout from './components/layouts/LoginLayout.vue';
 
 const pinia = createPinia()
 const app = createApp(App)
@@ -31,6 +32,7 @@ const app = createApp(App)
   .use(router);
 
 app.component('base-layout', BaseLayout)
+app.component('login-layout', LoginLayout)
 
 router.isReady().then(() => {
   app.use(pinia)

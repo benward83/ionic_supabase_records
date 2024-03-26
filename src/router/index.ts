@@ -5,6 +5,7 @@ import AlbumsView from '../views/albums/AlbumsView.vue'
 import AlbumDetailsView from '../views/albums/AlbumDetailsView.vue'
 import AddAlbumView from '../views/albums/AddAlbumView.vue'
 import LoginView from '@/views/LoginView.vue';
+import UserAccountView from '@/views/UserAccountView.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -20,6 +21,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/login',
     name: 'Login',
     component: LoginView,
+  },
+  {
+    path: '/me',
+    name: 'MyProfile',
+    component: UserAccountView,
   },
   {
     path: '/albums',
