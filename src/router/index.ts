@@ -1,19 +1,25 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router';
 import { RouteRecordRaw } from 'vue-router';
 import HomeView from '../views/HomeView.vue'
-import AlbumsView from '../views/AlbumsView.vue'
-import AlbumDetailsView from '../views/AlbumDetailsView.vue'
-import AddAlbumView from '../views/AddAlbumView.vue'
+import AlbumsView from '../views/albums/AlbumsView.vue'
+import AlbumDetailsView from '../views/albums/AlbumDetailsView.vue'
+import AddAlbumView from '../views/albums/AddAlbumView.vue'
+import LoginView from '@/views/LoginView.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    redirect: '/home',
+    redirect: '/login',
   },
   {
     path: '/home',
     name: 'Home',
     component: HomeView,
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: LoginView,
   },
   {
     path: '/albums',

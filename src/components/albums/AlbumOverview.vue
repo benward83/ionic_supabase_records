@@ -1,7 +1,7 @@
 <template>
-  <ion-img :src="album?.image" :alt="album?.name"></ion-img>
+  <ion-img :src="album?.image_url" :alt="album?.name"></ion-img>
   <h2 class="ion-text-center">{{ album?.artist }}</h2>
-  <p class="ion-text-center">{{ album?.releaseYear }}</p>
+  <p class="ion-text-center">{{ album?.release_year }}</p>
 </template>
 
 <script setup lang="ts">
@@ -11,5 +11,4 @@ import { IonImg } from '@ionic/vue';
 defineProps<{
   album: Album,
 }>();
-
 </script>

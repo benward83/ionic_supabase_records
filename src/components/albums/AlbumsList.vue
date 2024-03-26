@@ -3,7 +3,6 @@
     <AlbumItem
       v-for="album in albums"
       :key="album.id"
-      :router-link="`/albums/${album.id}`"
       :album="album"
     />
   </ion-list>

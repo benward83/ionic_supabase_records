@@ -23,7 +23,7 @@ import '@ionic/vue/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
-import BaseLayout from './components/BaseLayout.vue';
+import BaseLayout from './components/base/BaseLayout.vue';
 
 const pinia = createPinia()
 const app = createApp(App)

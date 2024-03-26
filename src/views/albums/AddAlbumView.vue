@@ -1,6 +1,6 @@
 <template>
   <base-layout page-title="Add Album" pageDefaultLink="/albums">
-  <AddAlbumForm />
+    <AddAlbumForm />
   </base-layout>
 </template>
 
