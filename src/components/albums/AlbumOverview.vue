@@ -1,6 +1,6 @@
 <template>
   <ion-img :src="album?.image_url" :alt="album?.name"></ion-img>
-  <h2 class="ion-text-center">{{ album?.artist }}</h2>
+  <h2 class="ion-text-center">{{ album?.artist_name }}</h2>
   <p class="ion-text-center">{{ album?.release_year }}</p>
 </template>
 

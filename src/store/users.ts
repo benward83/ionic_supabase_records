@@ -1,81 +1,63 @@
 import { defineStore } from "pinia"
 import supabase from '../client/supabaseClient'
-import { useRouter } from 'vue-router';
+import router from "@/router";
 
 export type User = {
-  name?: string,
+  first_name?: string,
+  last_name?: string,
   email: string,
   password: string
 }
 
 export const useUserStore = defineStore('users', () => {
 
-  const router = useRouter();
-
-  const createUser = async (user: User) => {
-
+  const updateProfile = async (userId: string, profileData: Partial<User>) => {
     const { data, error } = await supabase
-      .auth
-      .signUp({
-        email: user.email,
-        password: user.password,
-        options: {
-          data: {
-            first_name: user.name,
-          },
-        },
-      })
+      .from('user_profiles')
+      .update(profileData)
+      .match({ user_id: userId });
 
     if (error) {
-      console.warn('Could not create user', error)
+      console.warn('Could not update profile', error);
+      return false;
     }
 
-    if (data) {
-      router.replace('/home')
-    }
+    router.replace('/Home')
 
-  }
+    return data;
+  };
 
-  const loginWithPassword = async (user: User) => {
-    const { error} = await supabase
-      .auth
-      .signInWithPassword({
-        email: user.email,
-        password: user.password,
-      });
+  // const createOrUpdateProfile = async (profileData: Partial<User>) => {
+  //   const user = supabase.auth.user();
 
-    if (error) {
-      console.warn('Could not login to application', error)
-    } else {
-      router.replace('/home')
-    }
-  }
+  //   if (!user) {
+  //     console.warn('No user logged in');
+  //     return false;
+  //   }
 
-  const getCurrentUserSession = async () => {
-    const currentUser = await supabase
-      .auth
-      .getSession()
-    console.log("🚀 ~ getCurrentUserSession ~ currentUser:", currentUser)
-  }
+  //   const existingProfile = await supabase
+  //     .from('profiles')
+  //     .select('*')
+  //     .eq('user_id', user.id)
+  //     .single();
 
-  const logout = async () => {
+  //   if (existingProfile.data) {
+  //     return await updateProfile(user.id, profileData);
+  //   } else {
+  //     const { data, error } = await supabase
+  //       .from('profiles')
+  //       .insert([{ ...profileData, user_id: user.id }]);
 
-    const { error } = await supabase
-      .auth
-      .signOut()
+  //     if (error) {
+  //       console.warn('Could not create profile', error);
+  //       return false;
+  //     }
 
-    if (error) {
-      console.warn('Could not logout', error)
-    }
-
-    router.replace('/Login')
-  }
+  //     return data;
+  //   }
+  // };
 
   return {
-    createUser,
-    loginWithPassword,
-    getCurrentUserSession,
-    logout,
+    updateProfile,
   }
-
 });

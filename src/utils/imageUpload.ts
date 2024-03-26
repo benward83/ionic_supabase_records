@@ -28,7 +28,7 @@ const uploadImage = async (fileBlob: Blob | string, bucketName: string) => {
   }
 
   if (data) {
-    const { publicUrl } = supabase.storage.from('album_cover_images').getPublicUrl(filePath).data;
+    const { publicUrl } = supabase.storage.from(bucketName).getPublicUrl(filePath).data;
     return publicUrl
   }
 

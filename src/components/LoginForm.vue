@@ -49,13 +49,6 @@
             >
               Login
             </ion-button>
-            <ion-button
-              type="button"
-              fill="clear"
-              @click="seeCurrentUser"
-            >
-              See User
-            </ion-button>
           </div>
         </div>
       </ion-list>
@@ -66,26 +59,21 @@
 <script setup lang="ts">
 import { IonContent, IonPage, IonList, IonItem, IonLabel, IonButton, IonInput } from '@ionic/vue'
 import { reactive } from 'vue';
-import { useUserStore } from '../store/users';
+import { useAuthStore } from '../store/auth';
 
-const userStore = useUserStore();
+const authStore = useAuthStore();
 
 const user = reactive({
   name: '',
   email: '',
   password: '',
-})
+});
 
 const createAccount = () => {
-  userStore.createUser({ ...user });
+  authStore.createUser({ ...user });
 };
 
 const login = () => {
-  userStore.loginWithPassword({ ...user });
-};
-
-const seeCurrentUser = () => {
-  userStore.getCurrentUserSession();
+  authStore.loginWithPassword({ ...user });
 };
 </script>
-

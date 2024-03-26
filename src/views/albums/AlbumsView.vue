@@ -1,5 +1,5 @@
 <template>
-  <base-layout page-title="Albums">
+  <base-layout page-title="Albums" pageDefaultLink="/home">
     <template #actions-end>
       <ion-button router-link="/albums/add">
         <ion-icon slot="icon-only" :icon="add"></ion-icon>

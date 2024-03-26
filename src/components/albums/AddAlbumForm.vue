@@ -14,7 +14,7 @@
       <ion-item>
         <ion-label position="floating">Artist</ion-label>
         <ion-input
-          v-model="albumData.artist"
+          v-model="albumData.artist_name"
           type="text"
         />
       </ion-item>
@@ -68,11 +68,11 @@ import { CameraResultType, CameraSource } from '@capacitor/camera'
 const { Camera } = Plugins;
 
 const props = withDefaults(defineProps<{
-  album: Partial<Album>
+  album?: Partial<Album>
 }>(), {
   album: () => ({
     name: '',
-    artist: '',
+    artist_name: '',
     rating: '',
     release_year: '',
     image_url: '',
@@ -91,7 +91,7 @@ const submitForm = async () => {
   } else {
     await albumStore.addAlbum(albumData);
   }
-  router.replace('/albums');
+  router.push('/albums');
 };
 
 const takePhoto = async() => {

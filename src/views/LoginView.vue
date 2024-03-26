@@ -1,7 +1,7 @@
 <template>
-    <base-layout page-title="Login">
+    <login-layout page-title="Login">
       <LoginForm />
-  </base-layout>
+  </login-layout>
 </template>
 
 <script setup lang="ts">
